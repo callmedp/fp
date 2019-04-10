@@ -1,13 +1,9 @@
 .quesDisplay
-{width : 30%;height : 90%;
+{width : 35%;;
 float: left;}
-.timer
-{height : 35% ;}
-.quesSet
-{height : 65%;}
 .ques
 {
-    width : 70%;height:100% ;
+    width : 65%; ;
     float: right;
 }
 .c8

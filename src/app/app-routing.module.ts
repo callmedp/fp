@@ -36,5 +36,6 @@ TeacherFullComponent,
 TestFormComponent,
 QInputComponent,
 TestDashComponent,
-QuestionComponent,ReportComponent]
+QuestionComponent,ReportComponent,
+StudentQuestionsComponent]
 
