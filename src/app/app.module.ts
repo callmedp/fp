@@ -18,6 +18,7 @@ import { TestformService } from './testform.service';
 import { FetchqService } from './fetchq.service';
 import { HomeComponent } from './home/home.component';
 import { QinputdashService } from './qinputdash.service';
+import { DeliverQuesService } from './deliver-ques.service';
 
 
 
@@ -49,7 +50,7 @@ import { QinputdashService } from './qinputdash.service';
     
   ],
   providers: [AuthService,TestformService
-  ,FetchqService,QinputdashService],
+  ,FetchqService,QinputdashService,DeliverQuesService],
   bootstrap: [AppComponent],
   entryComponents : [DialogboxComponent,
   LoginComponent,

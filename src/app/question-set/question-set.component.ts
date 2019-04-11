@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input,Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-question-set',
@@ -8,8 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class QuestionSetComponent implements OnInit {
 
   constructor() { }
-
+  @Input() quesno :number
+  res = [];
+  i: number = 0;
   ngOnInit() {
+    for (this.i = 0; this.i < this.quesno; this.i++) {
+      this.res.push(this.i);
+    }
+    console.log(this.res)
   }
-  items=[1,2,3,4]
+  @Output() messageevent =new EventEmitter()
+  getques(index)
+  {
+   this.messageevent.emit(index)
+  }
+  
 }

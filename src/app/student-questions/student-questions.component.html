@@ -5,13 +5,15 @@
                     <app-timer></app-timer>
                 </div>
                     <mat-divider></mat-divider>
-                <div class="quesSet">
-                    <app-question-set></app-question-set>
+                <div class="quesSet" >
+                    <app-question-set (messageevent)="getbutton($event)" [quesno]='noofques'>
+
+                    </app-question-set>
                 </div> 
         </div>
         <div class="ques">
                
-            <app-student-ques-disp></app-student-ques-disp>
+            <app-student-ques-disp (Answerevent)="saveinarray($event)" [index]="index"  [currentQuestion]="questionset[index-1]"></app-student-ques-disp>
             
             
         </div>

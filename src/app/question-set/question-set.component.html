@@ -1,8 +1,8 @@
 <mat-card>
  
-      <span *ngFor="let item of items">
-        <button  mat-mini-fab color="accent" class="space-button">
-          {{item}}
+      <span *ngFor="let index of res">
+        <button (click)="getques(index)"  mat-mini-fab color="accent" class="space-button">
+          {{index}}
         </button>
       </span>
   </mat-card>
