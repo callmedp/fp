@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges ,OnInit } from '@angular/core';
 import { FetchqService } from '../fetchq.service';
+import { QinputdashService } from '../qinputdash.service';
 
 
 @Component({
@@ -8,15 +9,27 @@ import { FetchqService } from '../fetchq.service';
   styleUrls: ['./test-dash.component.css']
 })
 export class TestDashComponent implements OnInit {
-  data ={
-    passkey : "hello"
-  }
   
-  qdata = []
-  constructor(private fetch :FetchqService) { }
+  public data =[]
+  public temp : any
+  constructor(private fetch :FetchqService,private qinputdash :QinputdashService) { }
+ 
+ngOnInit(){
+  console.log('probltm is here');
+  this.qinputdash.datatransfer$
+  .subscribe(
+    questiondata =>{
+    console.log('there');
+    
+    this.data.push(Object.assign({},questiondata));
+    // console.log("The questiondata is ");
+    // console.log(this.data);
+  });
 
-  ngOnInit() {
-  }
+}
+
+ 
+ /*
   fetchques()
  {
    this.fetch.fetchdata(this.data)
@@ -29,8 +42,8 @@ export class TestDashComponent implements OnInit {
     },
      err=>console.log(err)
    );
-   
- }
+  */
+ //}
 
   
 

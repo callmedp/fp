@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild } from '@angular/core';
 import { TestformService } from '../testform.service';
+import { QinputdashService } from '../qinputdash.service';
+import { NgForm } from '@angular/forms';
 
 
 
@@ -9,9 +11,9 @@ import { TestformService } from '../testform.service';
   styleUrls: ['./q-input.component.css']
 })
 export class QInputComponent implements OnInit {
-    questiondata={passkey : ""};
+ public questiondata={passkey : ""};
    
-  constructor(private testform : TestformService) { }
+  constructor(private testform : TestformService,private qinputdash : QinputdashService) { }
    
   ngOnInit() {
 
@@ -21,16 +23,21 @@ export class QInputComponent implements OnInit {
    );
    
   }
+  @ViewChild('refQues') ref :NgForm
+
   submitquestion()
   {
-
-    this.testform.storequestion(this.questiondata)
-    .subscribe(
-      res =>{console.log(res);
+   this.qinputdash.sendmessage(this.questiondata);
+   this.ref.reset();
+   console.log("question data read");
+    // this.testform.storequestion(this.questiondata)
+    // .subscribe(
+    //   res =>{console.log(res);
         
-      },
-       err=>console.log(err)
-    );
+    //   },
+    //    err=>console.log(err)
+    // );
+  
   }
   
 
