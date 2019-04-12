@@ -19,6 +19,7 @@ import { FetchqService } from './fetchq.service';
 import { HomeComponent } from './home/home.component';
 import { QinputdashService } from './qinputdash.service';
 import { DeliverQuesService } from './deliver-ques.service';
+import { InstructionPageComponent } from './instruction-page/instruction-page.component';
 
 
 
@@ -36,7 +37,8 @@ import { DeliverQuesService } from './deliver-ques.service';
     LoginComponent,
     SigninComponent,
     RoutingComponent,
-    HomeComponent
+    HomeComponent,
+    InstructionPageComponent
 
   ],
   imports: [
