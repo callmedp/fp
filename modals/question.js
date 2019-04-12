@@ -13,4 +13,4 @@ var question = new schema({
 
 });
 
-module.exports = mongoose.model('question',question);
+module.exports = mongoose.model('questions',question);
