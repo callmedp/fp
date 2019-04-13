@@ -70,8 +70,9 @@ router.post('/loadquestion',function(req,res){
 
 });
 
-router.post('/retriveQuestions',function(req,res){
+router.post('/retrieveQuestions',function(req,res){
     var passkey = req.body.passkey;
+
     url='mongodb+srv://sarthak:test@cluster0-vvw6t.mongodb.net/'+passkey+'?retryWrites=true';
       
     mongoose.connect(url,{useNewUrlParser:true},(err)=>{
@@ -79,12 +80,18 @@ router.post('/retriveQuestions',function(req,res){
         console.log(err);
         else
         {   console.log("mongodb connected");
-            Signupst.save(stdata)
-
-        }
+            Question.find({},(error,response)=>{
+                if(error)
+                console.log(error)
+                else
+                {
+                    res.status(200).send(response);
+                }
     })
+}
    
 });
+})
 
 
 //4
@@ -138,17 +145,19 @@ router.post('/teachersignup',function(req,res){
 router.post('/loginstudent',function(req,res){
     var logindata = req.body;
     url='mongodb+srv://sarthak:test@cluster0-vvw6t.mongodb.net/student?retryWrites=true';
-    
+    console.log(logindata)
+
     mongoose.connect(url,{useNewUrlParser:true},(err)=>{
         if(err)
         console.log(err);
         else
         {   console.log("mongodb connected");
-            Signupst.find({stname : logindata.username , stpass : logindata.password},(err,reguser)=>{
+            Signupst.findOne({stname : logindata.username },(err,reguser)=>{
                 if(err)
                 console.log(err);
                 else{
-                    if(!reguser)
+                    console.log(reguser);
+                    if(!reguser || reguser.stpass!=logindata.password)
                         res.status(401).send("Invalid username or password")
                     else
                         res.status(200).send("Authenticated")
