@@ -19,11 +19,7 @@ import { FetchqService } from './fetchq.service';
 import { HomeComponent } from './home/home.component';
 import { QinputdashService } from './qinputdash.service';
 import { DeliverQuesService } from './deliver-ques.service';
-import { InstructionPageComponent } from './instruction-page/instruction-page.component';
-
-
-
-
+import { SendanswersService } from './sendanswers.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +34,6 @@ import { InstructionPageComponent } from './instruction-page/instruction-page.co
     SigninComponent,
     RoutingComponent,
     HomeComponent,
-    InstructionPageComponent
 
   ],
   imports: [
@@ -51,8 +46,13 @@ import { InstructionPageComponent } from './instruction-page/instruction-page.co
     HttpClientModule
     
   ],
-  providers: [AuthService,TestformService
-  ,FetchqService,QinputdashService,DeliverQuesService],
+  providers: [AuthService,
+    TestformService,
+    FetchqService,
+    QinputdashService,
+    DeliverQuesService,
+    SendanswersService
+  ],
   bootstrap: [AppComponent],
   entryComponents : [DialogboxComponent,
   LoginComponent,

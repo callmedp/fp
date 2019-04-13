@@ -20,6 +20,7 @@ export class QuestionSetComponent implements OnInit {
   @Output() messageevent =new EventEmitter()
   getques(index)
   {
+    console.log(index);
    this.messageevent.emit(index)
   }
   

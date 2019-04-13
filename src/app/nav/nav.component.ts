@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog,MatDialogConfig } from '@angular/material';
 import { LoginComponent } from '../login/login.component';
 import { SigninComponent } from '../signin/signin.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class NavComponent implements OnInit {
 
    loggedin = true;
 
-  constructor(private dialog :MatDialog) { }
+  constructor(private dialog :MatDialog,
+    private router : Router) { }
 
   ngOnInit() {
   }
@@ -38,6 +40,8 @@ export class NavComponent implements OnInit {
   clicklogout()
   {
     this.loggedin=!this.loggedin;
+    this.router.navigate(['/']);
+
 
   }
 

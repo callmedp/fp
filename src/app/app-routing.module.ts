@@ -9,10 +9,13 @@ import { QuestionComponent } from './question/question.component';
 import { ReportComponent } from './report/report.component';
 import { StudentQuestionsComponent } from './student-questions/student-questions.component';
 import { HomeComponent } from './home/home.component';
+import { InstructionPageComponent } from './instruction-page/instruction-page.component';
 
 
 const routes: Routes = [
-  {path:'',component : HomeComponent},
+  {path:'',component : HomeComponent}, 
+  {path : 'instruction' ,component : InstructionPageComponent},
+  {path : 'studentdips', component : StudentQuestionsComponent},
   {path:'teacherdash',component:TeacherDashComponent},
   {path :'teacherfull', component:TeacherFullComponent},
   {path:'testform',component : TestFormComponent},
@@ -34,6 +37,7 @@ export const RoutingComponent=[HomeComponent,
 TeacherDashComponent,
 TeacherFullComponent,
 TestFormComponent,
+InstructionPageComponent,
 QInputComponent,
 TestDashComponent,
 QuestionComponent,ReportComponent,

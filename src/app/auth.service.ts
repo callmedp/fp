@@ -8,8 +8,19 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
  urls = "http://localhost:3000/api/studentsignup";
  urlt = "http://localhost:3000/api/teachersignup";
-  constructor(private http : HttpClient) { }
 
+ loginSturl="http://localhost:3000/api/loginStudent";
+ loginteacherurl="http://localhost:3000/api/loginTeacher";
+  constructor(private http : HttpClient) { }
+  checkStudent(login)
+  {
+    return this.http.post<any>(this.loginSturl,login);
+
+  }
+  checkTeacher(login)
+  {
+    return this.http.post<any>(this.loginteacherurl,login);
+  }
   storeStudent(data)
   {
     return this.http.post<any>(this.urls,data);

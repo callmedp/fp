@@ -26,7 +26,7 @@ export class SigninComponent implements OnInit {
    .subscribe(
      res =>{console.log(res);
       this.signinRef.close();
-      this.router.navigate(['/teacherdash']);
+      this.router.navigate(['/instruction']);
       
     },
      err=>console.log(err)

@@ -3,6 +3,8 @@ import { MatDialogRef } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
 import { DeliverQuesService } from '../deliver-ques.service';
 import { QuestionComponent } from '../question/question.component';
+import { Router, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,18 +13,30 @@ import { QuestionComponent } from '../question/question.component';
 export class LoginComponent implements OnInit {
 
   constructor(private loginRef :MatDialogRef<LoginComponent>,
-    private _http : HttpClient,private ques : DeliverQuesService) { }
+    private _http : HttpClient,private ques : DeliverQuesService,
+    private router : Router) { }
 
   ngOnInit() {
   }
-  public login = {key : ""}
-  public questionset
-loadQuestions(){
-  //Router to Instruction page
-  this.ques.getQuestions(this.login.key).subscribe(data =>{
-    this.questionset = data;
-  })
-  this.ques.passQuestions(this.questionset);
+  public login = {passkey : ""}
+  public tlogin ={}
+loginstudent(){
+  //Authentcation remaining
+  this.loginRef.close();
+  this.ques.passthekey(this.login.passkey)
+  setTimeout(()=>{
+    this.router.navigate(['/instruction']);
+  },500)
+
+  
+ 
+}
+loginteacher()
+{
+  //Authentcation remaining
+  this.loginRef.close();
+  this.router.navigate(['/teacherdash']);
+
 }
 
 

@@ -17,16 +17,22 @@ export class StudentQuesDispComponent implements OnInit {
 @Output() Answerevent = new EventEmitter();
 public finalans
 public sendobj ={
-  fa : this.finalans,
-  ind : this.index
+  fa : " ",
+  ind : 1
 }
 
 
 ngOnInit() {
+  console.log('ques ka index ye hai')
+  console.log(this.index)
   }
-  saveandnext(sendobj)
-  {
-    this.Answerevent.emit(sendobj);
+  saveandnext()
+  { 
+    this.sendobj.fa  =this.finalans
+   this.sendobj.ind = this.index
+
+
+    this.Answerevent.emit(this.sendobj);
     
 
   }
