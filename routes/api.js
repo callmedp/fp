@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var Testdata = require('../modals/test-data');
 var Question = require('../modals/question');
 var Signupst = require('../modals/signupst');
+var SaveAnswers =require('../modals/saveanswer')
 var SignupTeacher = require('../modals/signupTeacher');
 router.get('/',function(req,res){
     res.send("this is from api");
@@ -193,6 +194,51 @@ router.post('/loginteacher',function(req,res){
     })
    
 });
+
+// 8
+
+
+router.post('/saveAnswers',function(req,res){
+    var passkey = req.body.passkey;
+    /*
+    {
+        passkey :
+        stname :
+        answers :
+    }
+    */
+    url='mongodb+srv://sarthak:test@cluster0-vvw6t.mongodb.net/'+passkey+'?retryWrites=true';
+    var data = {
+        strollno : req.body.strollno,
+        answers : req.body.arr
+    }
+    saveAnswers = new SaveAnswers(data)
+    mongoose.connect(url,{useNewUrlParser:true},(err)=>{
+        if(err)
+        console.log(err);
+        else
+        {   console.log("mongodb connected");
+             saveAnswers.save((err,response)=>{
+                if(err)
+                console.log(err)
+                else
+                {
+                    res.status(200).send('submitted');
+                    console.log(response);
+                    
+                }
+             })
+
+            
+
+
+
+        }
+    })
+   
+});
+
+
 
 
 module.exports = router;
