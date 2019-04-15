@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 var SaveAnswers = new schema({
-  strollno : String,
+  stname : String,
   answers : Array
 });
 
