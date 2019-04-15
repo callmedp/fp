@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DeliverQuesService } from '../deliver-ques.service';
-import { QuestionComponent } from '../question/question.component';
 import { SendanswersService } from '../sendanswers.service';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-questions',
@@ -12,16 +13,24 @@ import { SendanswersService } from '../sendanswers.service';
 export class StudentQuestionsComponent implements OnInit {
 
   constructor(private ques : DeliverQuesService,
-    private ans : SendanswersService) { }
+    private ans : SendanswersService,
+    private router : Router
+) { }
   public questionset
   public noofques : number
   public index : number = 0;
   public submitdata ={
     stname : "",
-    answers : [""]
+    answers : [],
+    passkey : " "
   }
+public login ={ username : "",
+                password : "",
+              passkey : ""
+            }
+  arr = []
 
-  arr = new Array(this.noofques);
+
 
   ngOnInit() {
     this.ques.infoholder.subscribe(data=>{
@@ -29,6 +38,15 @@ export class StudentQuestionsComponent implements OnInit {
       this.questionset = data;
       this.noofques=this.questionset.length
       console.log(this.questionset)
+
+      this.ans.infoholder.subscribe(data =>
+        {
+          this.login = data
+
+        })
+      // for(let i=0;i<this.noofques;i++){
+      //   this.arr.push(false)
+      // }
     })
    
   
@@ -43,18 +61,30 @@ export class StudentQuestionsComponent implements OnInit {
 
   saveinarray($event)
   {
-    console.log($event)
-    console.log("st-ques-saveinarray se")
-    this.arr[$event.ind]=$event.fa;
-    this.index=this.index+1;
-    console.log(this.arr)
+    // console.log($event)
+    // this.arr[$event.ind]=$event.fa;
+    // if(this.index<this.noofques-1)
+    // this.index=this.index+1;
+    // else 
+    //  this.index=0;
+    // console.log(this.arr)
+    this.arr=$event.slice()
+
   }
   submit()
   {
-    this.submitdata.stname = "sarthak"
-    this.submit.answers = this.arr.slice()
+    this.submitdata.stname = this.login.username
+    this.submitdata.answers = this.arr
+    this.submitdata.passkey = this.login.passkey
+    this.ans.saveAns(this.submitdata).subscribe(message=>{
+      console.log(message)
+      this.router.navigate(['/score', this.login.username,  this.login.passkey]);
+  })
 
-    this.ans.saveAns(this.submitdata)
+  
+
+  
+
 
 
   }

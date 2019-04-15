@@ -10,9 +10,9 @@ export class QuestionSetComponent implements OnInit {
   constructor() { }
   @Input() quesno :number
   res = [];
-  i: number = 0;
+  i: number = 1;
   ngOnInit() {
-    for (this.i = 0; this.i < this.quesno; this.i++) {
+    for (this.i = 1; this.i <= this.quesno; this.i++) {
       this.res.push(this.i);
     }
     console.log(this.res)

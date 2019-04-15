@@ -20,6 +20,8 @@ import { HomeComponent } from './home/home.component';
 import { QinputdashService } from './qinputdash.service';
 import { DeliverQuesService } from './deliver-ques.service';
 import { SendanswersService } from './sendanswers.service';
+import { ScoreService } from './score.service';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { SendanswersService } from './sendanswers.service';
     SigninComponent,
     RoutingComponent,
     HomeComponent,
+    
 
   ],
   imports: [
@@ -51,7 +54,8 @@ import { SendanswersService } from './sendanswers.service';
     FetchqService,
     QinputdashService,
     DeliverQuesService,
-    SendanswersService
+    SendanswersService,
+    ScoreService
   ],
   bootstrap: [AppComponent],
   entryComponents : [DialogboxComponent,

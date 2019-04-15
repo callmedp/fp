@@ -2,7 +2,7 @@
 <div class="c8">
         <div class="quesDisplay">
                 <div class="timer">
-                    <!-- <app-timer></app-timer> -->
+                    <app-timer></app-timer>
                 </div>
                     <mat-divider></mat-divider>
                 <div class="quesSet" >
@@ -13,7 +13,7 @@
         </div>
         <div class="ques">
                
-            <app-student-ques-disp (Answerevent)="saveinarray($event)" [index]="index"  [currentQuestion]="questionset[index]"></app-student-ques-disp>
+            <app-student-ques-disp (Answerevent)="saveinarray($event)" [index]="index"  [quesleng]="questionset.length" [currentQuestion]="questionset[index]"></app-student-ques-disp>
             
             
         </div>

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 import { TeacherFullComponent } from './teacher-full/teacher-full.component';
 import { TeacherDashComponent } from './teacher-dash/teacher-dash.component';
 import { TestFormComponent } from './test-form/test-form.component';
@@ -10,10 +10,12 @@ import { ReportComponent } from './report/report.component';
 import { StudentQuestionsComponent } from './student-questions/student-questions.component';
 import { HomeComponent } from './home/home.component';
 import { InstructionPageComponent } from './instruction-page/instruction-page.component';
+import { ScoreComponent } from './score/score.component';
 
 
 const routes: Routes = [
   {path:'',component : HomeComponent}, 
+  {path : 'score/:username/:passkey',component:ScoreComponent},
   {path : 'instruction' ,component : InstructionPageComponent},
   {path : 'studentdips', component : StudentQuestionsComponent},
   {path:'teacherdash',component:TeacherDashComponent},
@@ -41,5 +43,6 @@ InstructionPageComponent,
 QInputComponent,
 TestDashComponent,
 QuestionComponent,ReportComponent,
-StudentQuestionsComponent]
+StudentQuestionsComponent,
+ScoreComponent]
 
