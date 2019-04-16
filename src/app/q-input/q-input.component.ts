@@ -13,6 +13,10 @@ export class QInputComponent implements OnInit {
    
   constructor(private testform : TestformService) { }
    
+
+
+
+  
   ngOnInit() {
 
    this.testform.datatransfer$

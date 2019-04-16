@@ -9,7 +9,7 @@ import { FetchqService } from '../fetchq.service';
 })
 export class TestDashComponent implements OnInit {
   data ={
-    passkey : "hello"
+    passkey : "sart"
   }
   
   qdata = []
