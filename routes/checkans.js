@@ -12,6 +12,7 @@ var Report = require ('../modals/report');
 router.post('/calculateans',function(req,res){ 
     var userdata = req.body;
     var passkey = userdata.passkey;
+    console.log('this is user data')
     console.log(userdata);
    
    
@@ -30,7 +31,7 @@ router.post('/calculateans',function(req,res){
                }
                else
                {  console.log(Ares);
-                   Question.find({},{ answer : 1, _id : 0 },(err,Qres)=>{
+                   Question.find({},(err,Qres)=>{
                        if(err)
                        console.log(err);
                        else
@@ -88,6 +89,43 @@ router.post('/calculateans',function(req,res){
            
                    
          }
+            
+                    
+                   
+        
+
+    });
+    
+});
+
+
+
+
+
+router.post('/getMetaData',function(req,res){ 
+    var userdata = req.body;
+    var passkey = userdata.passkey;
+    console.log(userdata);
+   
+    url='mongodb+srv://sarthak:test@cluster0-vvw6t.mongodb.net/'+passkey+'?retryWrites=true';
+   
+    mongoose.connect(url,{useNewUrlParser:true},(err)=>{
+        if(err)
+        console.log(err);
+        else
+        {   console.log("mongodb connected");
+            Testdata.findOne({},(err,data)=>{
+                if(err)
+                console.log(err)
+                else
+                {
+                    res.status(200).send(data)
+                    console.log(data)
+                }
+            })
+
+                   
+            }
             
                     
                    
