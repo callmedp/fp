@@ -14,6 +14,7 @@ router.get('/',function(req,res){
 
 
 function verifyToken(req,res,next){
+    console.dir(req)
     if(!req.headers.authorization)
     {
         return res.status(401).send('unauthorized request')
@@ -32,9 +33,12 @@ function verifyToken(req,res,next){
     next()
 }
 
-router.use(verifyToken());
+router.post('/verify',verifyToken,function(req,res){
+    console.log('verified');
+})
 
-router.post('/testdata',function(req,res){ 
+
+router.post('/testdata',verifyToken,function(req,res){ 
     var userdata = req.body;
     var passkey = userdata.passkey;
     console.log(userdata);
@@ -66,7 +70,7 @@ router.post('/testdata',function(req,res){
     
 });
 
-router.post('/loadquestion',function(req,res){
+router.post('/loadquestion',verifyToken,function(req,res){
     var quesdata = req.body;
     var passkey = quesdata.passkey;
     
@@ -94,7 +98,7 @@ router.post('/loadquestion',function(req,res){
 
 });
 
-router.post('/retrieveQuestions',function(req,res){
+router.post('/retrieveQuestions',verifyToken,function(req,res){
     var passkey = req.body.passkey;
 
     url='mongodb+srv://sarthak:test@cluster0-vvw6t.mongodb.net/'+passkey+'?retryWrites=true';
@@ -205,7 +209,7 @@ router.post('/loginstudent',function(req,res){
    
 });
 
-router.post('/Answers',function(req,res){
+router.post('/Answers',verifyToken,function(req,res){
     let passkey = req.body.passkey;
     console.log("running")
     console.log(req.body)
