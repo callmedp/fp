@@ -17,6 +17,7 @@ export class QuestionComponent implements OnInit {
 
 
   }
+  @Input()  questionno  :number
 
   constructor() { }
 

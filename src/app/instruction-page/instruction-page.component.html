@@ -1,0 +1,54 @@
+<app-nav></app-nav>
+
+<mat-card class="c1">
+  <mat-card-header>
+    <mat-card-title>
+      Terms And Conditions
+    </mat-card-title>
+    <mat-card-subtitle>
+      Platform Instructions:
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <br>
+  <br>
+  <mat-card-content>
+    <ul>
+      <li>
+        <p>The counter timer at your top,left-hand side of screen
+          will display the time available for you to complete yor examination
+        </p>
+      </li>
+      <li>
+        <p>
+          The section of the test may be locked in which case you wont be able to 
+          switch between sections
+        </p>
+      </li>
+      <li>
+        <p>
+          Test will be submitted automatically if the time expires
+        </p>
+      </li>
+      <li>
+        <p>
+          If you have ansewered a question you can click on save and next button
+          to move to the next question.
+        </p>
+      </li>
+      <li>
+        <p>
+          Don't refresh the page or click the browser back buttonwhentest is 
+          in progress
+        </p>
+      </li>
+      <li>
+        <p>
+          Clicking browser back button will relad the page and you will
+          lose your data
+        </p>
+      </li>
+    </ul>
+    <button (click)="movetostudentdisplay()" mat-raised-button color="warn" >Start now</button>
+  </mat-card-content>
+</mat-card>

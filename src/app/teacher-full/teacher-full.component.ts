@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TeacherFullComponent implements OnInit {
 
   constructor() { }
-
+  public tr=true
   ngOnInit() {
   }
 

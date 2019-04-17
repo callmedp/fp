@@ -11,16 +11,19 @@ import {MatCardModule} from '@angular/material/card';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatTableModule} from '@angular/material/table';
 import {ScrollDispatchModule} from '@angular/cdk/scrolling';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 
 const allModules= [
+  MatGridListModule,
     MatButtonModule,
     MatToolbarModule,
     MatSidenavModule,
     MatFormFieldModule,
     MatSelectModule,
-   
+    MatProgressBarModule,
     MatInputModule,
     MatListModule,
     MatDividerModule,

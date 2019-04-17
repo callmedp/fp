@@ -1,0 +1,26 @@
+<app-nav></app-nav>
+<div class="c8">
+        <div class="quesDisplay">
+                <div class="timer">
+                    <app-timer></app-timer>
+                </div>
+                    <mat-divider></mat-divider>
+                <div class="quesSet" >
+                    <app-question-set (messageevent)="getbutton($event)" [quesno]='noofques'>
+
+                    </app-question-set>
+                </div> 
+        </div>
+        <div class="ques">
+               
+            <app-student-ques-disp (Answerevent)="saveinarray($event)" [index]="index"  [quesleng]="questionset.length" [currentQuestion]="questionset[index]"></app-student-ques-disp>
+            
+            
+        </div>
+        <div>
+            <button mat-raised-button color="warn" (click)='submit()' >Submit</button>
+        </div>
+</div>
+<mat-divider [vertical]="true"></mat-divider>
+
+

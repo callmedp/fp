@@ -19,14 +19,14 @@ export class TestFormComponent implements OnInit {
   testformsubmit()
   {
     this.testform.sendmessage(this.testformdata.passkey);
-    this.testform.storetestfrom(this.testformdata)
-    .subscribe(
-      res =>{console.log(res);
+    // this.testform.storetestfrom(this.testformdata)
+    // .subscribe(
+    //   res =>{console.log(res);
        
         
-      },
-       err=>console.log(err)
-    );
+    //   },
+    //    err=>console.log(err)
+    // );
   }
 
 }

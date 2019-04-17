@@ -3,36 +3,36 @@
     <div class="example-small-box mat-elevation-z4">
       <mat-form-field class="c1">
         Student Username  
-        <input matInput ><br>
+        <input matInput  [(ngModel)]="login.username" name="username"><br>
       </mat-form-field>
        <br>
       <mat-form-field class="c1">
           Student Password  
-          <input matInput class="c1" ><br>
+          <input matInput  [(ngModel)]="login.password" name="password" class="c1" ><br>
       </mat-form-field>
       <br>
       <mat-form-field class="c1">
         Test Passkey  
-        <input matInput class="c1" ><br>
+        <input   [(ngModel)]="login.passkey" name="passkey" matInput class="c1" ><br>
     </mat-form-field>
     <br>
-    <button class="c2" mat-raised-button color="warn">Login</button>
+    <button (click)=loginstudent() class="c2" mat-raised-button color="warn">Login</button>
     </div>
   </mat-tab>
   <mat-tab label="Teacher">
     <div class="example-large-box mat-elevation-z4">
-      <mat-form-field class="c1">
-        Teacher Username  
-        <input matInput ><br>
+      <mat-form-field class="c1" >
+        Teacher id  
+        <input matInput [(ngModel)]="tlogin.id" ><br>
       </mat-form-field>
        <br>
       <mat-form-field class="c1">
           Teacher Password  
-          <input matInput class="c1" ><br>
+          <input matInput class="c1" [(ngModel)]="tlogin.password"><br>
       </mat-form-field>
      
     <br>
-    <button class="c2" mat-raised-button color="warn">Login</button>
+    <button (click)="loginteacher()" class="c2" mat-raised-button color="warn">Login</button>
     </div>
   </mat-tab>
 </mat-tab-group>

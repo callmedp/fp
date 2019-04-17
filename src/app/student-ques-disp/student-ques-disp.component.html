@@ -1,0 +1,37 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Question No : {{index+1}}
+    </mat-card-title>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <p>
+      {{currentQuestion.question}}
+    </p>
+      <div>
+          <mat-radio-group class="example-radio-group" #options [(ngModel)]="ansary[index]">
+            <mat-radio-button class="example-radio-button" name="rada"
+               value="a">
+              {{currentQuestion.optiona}}
+            </mat-radio-button>
+            <mat-radio-button class="example-radio-button" name="radb" 
+            value="b">
+            {{currentQuestion.optionb}}
+         </mat-radio-button>
+         <mat-radio-button class="example-radio-button" name="radc"
+         value="c">
+         {{currentQuestion.optionc}}
+      </mat-radio-button>
+      <mat-radio-button class="example-radio-button" name="radd"
+      value="d">
+      {{currentQuestion.optiond}}
+   </mat-radio-button>
+        </mat-radio-group>
+      </div>
+  </mat-card-content>
+  <mat-card-actions class="save">
+      <button (click)="deSelect()" color="accent" >Reset</button>
+    <button (click)="submit()" mat-raised-button color="accent" >Submit</button>
+  </mat-card-actions>
+</mat-card>

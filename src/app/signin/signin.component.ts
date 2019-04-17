@@ -26,7 +26,8 @@ export class SigninComponent implements OnInit {
    .subscribe(
      res =>{console.log(res);
       this.signinRef.close();
-      this.router.navigate(['/teacherdash']);
+      localStorage.setItem('token',res.token)
+      this.router.navigate(['/instruction']);
       
     },
      err=>console.log(err)
@@ -39,6 +40,7 @@ export class SigninComponent implements OnInit {
   .subscribe(
     res =>{console.log(res);
       this.signinRef.close();
+      localStorage.setItem('token',res.token)
       this.router.navigate(['/teacherdash']);
     },
      err=>console.log(err)

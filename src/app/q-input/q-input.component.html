@@ -1,10 +1,11 @@
 <div >
+  <form >
     <div class="c4">
            <br> <mat-label class="c12"><strong>Type Question</strong></mat-label>
             <br>
             <mat-form-field class="c11">
                 
-                <input [(ngModel)]='questiondata.question' name="question" matInput placeholder="Here">
+                <input [(ngModel)]='questiondata.question' #refQues name="question" matInput placeholder="Here">
               </mat-form-field>
               <mat-divider class="c1"></mat-divider>
         
@@ -54,4 +55,5 @@
     </mat-select>
   </mat-form-field>
    <button (click)="submitquestion()" class="c10" mat-raised-button color="primary">Add Question</button>
-</div>
+  </form>
+  </div>
