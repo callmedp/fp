@@ -11,6 +11,7 @@ export class AuthService {
 
  loginSturl="http://localhost:3000/api/loginstudent";
  loginteacherurl="http://localhost:3000/api/loginteacher";
+ verifyurl="http://localhost:3000/api/verify";
   constructor(private http : HttpClient) { }
   checkStudent(login)
   {
@@ -38,6 +39,10 @@ export class AuthService {
   getToken()
   {
     return localStorage.getItem('token')
+  }
+  verifyinback(data)
+  {
+    return this.http.post<any>(this.verifyurl,data);
   }
 
 

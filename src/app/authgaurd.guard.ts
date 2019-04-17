@@ -11,7 +11,7 @@ export class AuthgaurdGuard implements CanActivate {
   constructor (private auth : AuthService ,
     private router : Router){}
   canActivate():boolean{
-    if(this.auth.loggedIn())
+    if(this.auth.loggedIn() && this.auth.verifyinback())
     {
       return true;
     }
