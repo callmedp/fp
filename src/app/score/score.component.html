@@ -1,17 +1,30 @@
 <app-nav></app-nav>
 <br>
-your score is {{result.score}}
+this is {{stname}}
+and this is passkey {{passkey}}
+your score is {{score}}
 <br>
-
-<!-- 
+<div *ngIf="flag==false;then loading ;else execute ">
+  
+</div>
+<ng-template #loading>Loading...</ng-template>
+<ng-template #execute>
 <ul>
   <li>
     Question No || Marks
   </li>
   <li *ngFor="let res of result.checkedans;let i=index">
-       Ques No . {{i}} => {{res}}
+       <div *ngIf="res==true ; then first ;else second"></div>
+       <ng-template #first>
+        Ques No . {{i}} => {{1}}
+       </ng-template>
+       <ng-template #second>
+        Ques No . {{i}} => {{0}}
+       </ng-template>
   </li>
-</ul> -->
+</ul>
+
+</ng-template>
 
 <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 " >
 
