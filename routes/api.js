@@ -6,10 +6,33 @@ var Question = require('../modals/question');
 var Signupst = require('../modals/signupst');
 var SaveAnswers =require('../modals/saveanswer')
 var SignupTeacher = require('../modals/signupTeacher');
+var jwt = require('jsonwebtoken')
 router.get('/',function(req,res){
     res.send("this is from api");
 });
 
+
+
+function verifyToken(req,res,next){
+    if(!req.headers.authorization)
+    {
+        return res.status(401).send('unauthorized request')
+
+    }
+    let token = req.headers.authorization.split(' ')[1]
+    if(token === 'null')
+    {
+        return res.status(401).send('unauthorised request')
+
+    }
+    let payload = jwt.verify(token,"sarthakkey")
+    if(!payload)
+    return res.status(401).send('unauthorised request')
+    req.userId=payload.subject
+    next()
+}
+
+router.use(verifyToken());
 
 router.post('/testdata',function(req,res){ 
     var userdata = req.body;
@@ -110,7 +133,11 @@ router.post('/studentsignup',function(req,res){
                 if(err)
                 console.log(err);
                 else
-                res.send(reguser);
+                {
+                    var payload = { subject : reguser._id }
+                            var token = jwt.sign(payload , "sarthakkey")
+                            res.status(200).send({token})
+                }
             });
 
         }
@@ -133,7 +160,11 @@ router.post('/teachersignup',function(req,res){
                 if(err)
                 console.log(err);
                 else
-                res.send(reguser);
+               {
+                var payload = { subject : reguser._id }
+                var token = jwt.sign(payload , "sarthakkey")
+                res.status(200).send({token})
+               }
             });
 
         }
@@ -161,7 +192,12 @@ router.post('/loginstudent',function(req,res){
                     if(!reguser || reguser.stpass!=logindata.password)
                         res.status(401).send("Invalid username or password")
                     else
-                        res.status(200).send("Authenticated")
+                        {
+                            var payload = { subject : reguser._id }
+                            var token = jwt.sign(payload , "sarthakkey")
+                            res.status(200).send({token})
+
+                        }
                 }
             });
         }
@@ -227,7 +263,11 @@ router.post('/loginteacher',function(req,res){
                     if(!reguser || reguser.tpass!=logindata.password)
                         res.status(401).send('Username or password invalid')
                     else
-                        res.status(200).send("Authenticated")
+                       {
+                        var payload = { subject : reguser._id }
+                        var token = jwt.sign(payload , "sarthakkey")
+                        res.status(200).send({token})
+                       }
                     }
             });
         }
