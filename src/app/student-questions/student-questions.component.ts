@@ -77,7 +77,7 @@ public login ={ username : "",
     this.submitdata.answers = this.arr
     this.submitdata.passkey = this.login.passkey
     this.ans.saveAns(this.submitdata).subscribe(message=>{
-      console.log(message)
+      
       this.router.navigate(['/score', this.login.username,  this.login.passkey]);
   })
 

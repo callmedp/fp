@@ -25,9 +25,14 @@ export class ScoreComponent implements OnInit {
 
   public stname
   public passkey
-  public obj ={ stname : this.stname,passkey : this.passkey}
-  public result 
-  
+  public obj ={ username : this.stname,passkey : this.passkey}
+  public result : sometype ={
+    stname : "somename",
+    checkedans : ['false'],
+    score : 0
+  }
+  public score
+  public flag : boolean =false
   // public result : sometype = {
   //   checkedans : [],
   //   stname : " ",
@@ -38,16 +43,25 @@ export class ScoreComponent implements OnInit {
    checkedanslength :number
 
   ngOnInit() {
+    this.flag = false
     this.stname = this.route.snapshot.paramMap.get('username');
     this.passkey = this.route.snapshot.paramMap.get('passkey');
     
-    console.log('this is from score component'+this.stname)
+    
+      this.obj.username= this.stname;
+      this.obj.passkey= this.passkey
 
-    this.scoreservice.getscore(this.obj)
-    .subscribe((datascore )=>{
+      this.scoreservice.getscore(this.obj)
+    .subscribe((datascore : sometype )=>{
       this.result = datascore
+      this.score = datascore.score;
+      this.flag = true
+
       console.log(datascore)
     })
+    
+    
+    
 
     // this.checkedanslength = this.result.checkedans.length
     // for(let i=0;i<this.checkedanslength;i++)
