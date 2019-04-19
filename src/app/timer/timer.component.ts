@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SendanswersService } from '../sendanswers.service';
 
 @Component({
   selector: 'app-timer',
@@ -7,28 +8,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimerComponent implements OnInit {
 
-  constructor() { }
-public hrs:number=0;
-public seconds:number=0;
+  constructor(private ans : SendanswersService) { }
+public hr:number=0;
+public sec:number=0;
 public min : number=0;
+public time : number
+@Input() passkey:number;
   ngOnInit() {
   }
   color = 'warn';
   mode = 'determinate';
   public value : number;
   public timerId = setInterval(() =>{
-      this.seconds++;
-      if(this.seconds==60)
-      {
-        this.seconds=0;
-        this.min++;
-      }
+    this.ans.getMetaData(this.passkey).subscribe(meta=>{
+   // this.time=this.meta.time.hr*3600 +this.meta.time.min*60+this.meta.time.sec;
+    this.sec++;
+    if(this.sec==60)
+    {
+      this.sec=0;
+      this.min++;
       if(this.min==60)
       {
         this.min=0;
-        this.hrs++;
+        this.hr++;
       }
-      this.value=this.seconds*100/15;
+      this
+    }
+    this.value=this.time*100/this.time;
+    })
+     
    }, 1000);
 
    

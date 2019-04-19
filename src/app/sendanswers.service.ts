@@ -9,7 +9,8 @@ import { BehaviorSubject } from 'rxjs';
 export class SendanswersService {
 
   constructor(private http : HttpClient) { }
-public urll = 'http://localhost:3000/api/Answers'
+public urll = 'http://localhost:3000/api/Answers';
+public umrl='http://localhost:3000/checkans/getMetaData';
   saveAns(answ)
   {
     console.log(answ)
@@ -19,5 +20,9 @@ public urll = 'http://localhost:3000/api/Answers'
   sendstudentdata(data)
   {
     this.infoholder.next(data)
+  }
+
+  getMetaData(passkey){
+    return this.http.post(this.umrl,passkey,{responseType : 'text'})
   }
 }

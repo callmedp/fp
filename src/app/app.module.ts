@@ -48,6 +48,7 @@ import { TokenIntersepterService } from './token-intersepter.service';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    FormsModule,
     MaterialModule,
     HttpClientModule
     
