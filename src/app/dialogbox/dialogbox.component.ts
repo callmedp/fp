@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { TempdataService } from '../tempdata.service';
+import { Router } from '@angular/router';
+import { SendanswersService } from '../sendanswers.service';
 
 @Component({
   selector: 'app-dialogbox',
@@ -10,7 +12,9 @@ import { TempdataService } from '../tempdata.service';
 export class DialogboxComponent implements OnInit {
 
   constructor(private diaogRef :MatDialogRef<DialogboxComponent>,
-    private temp :TempdataService) { }
+    private temp :TempdataService,
+    private router : Router,
+    private sendans :SendanswersService) { }
   public passkey="";
 
   ngOnInit() {
@@ -21,9 +25,16 @@ export class DialogboxComponent implements OnInit {
   }
   onsubmit()
   {
-    this.temp.sendpasskey(this.passkey)
+    this.sendans.getScores({passkey : this.passkey}).subscribe(
+      scorearr =>{
+        console.log(scorearr);
+        this.temp.sendreport(scorearr);
+       
+        this.diaogRef.close();
+        this.router.navigate(['/report'])
+      }
+    )
 
-    
   }
 
 }

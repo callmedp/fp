@@ -8,8 +8,8 @@ export class TempdataService {
   constructor() { }
 
   infoholder = new BehaviorSubject<any>('')
-  sendpasskey(passkey)
+  sendreport(data)
   {
-    this.infoholder.next(passkey)
+    this.infoholder.next(data)
   }
 }

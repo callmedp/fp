@@ -2,16 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ScoreService } from '../score.service';
 import { ActivatedRoute } from '@angular/router';
 
-// export interface PeriodicElement {
-  
- 
-//  marks : number;
- 
-// }
+
 export interface sometype  {stname :String,checkedans:Array<any>, score : Number }
 
 
-
+export interface sometype1 { position : Number , result :number}
 
 @Component({
   selector: 'app-score',
@@ -33,13 +28,9 @@ export class ScoreComponent implements OnInit {
   }
   public score
   public flag : boolean =false
-  // public result : sometype = {
-  //   checkedans : [],
-  //   stname : " ",
-  //   score : 0
-  // }
-  
-  //  ELEMENT_DATA: PeriodicElement[] = this.result.checkedans
+  public dataSource :sometype1[]
+  temp 
+  temp2 = []
    checkedanslength :number
 
   ngOnInit() {
@@ -56,29 +47,21 @@ export class ScoreComponent implements OnInit {
       this.result = datascore
       this.score = datascore.score;
       this.flag = true
+      this.temp=datascore.checkedans
 
-      console.log(datascore)
+      for (let index = 0; index < this.temp.length; index++) {
+        let val = this.temp[index];
+        this.temp2.push({position : index , result : val})
+        this.dataSource = this.temp2
+       
+      }
+
+      
     })
-    
-    
-    
-
-    // this.checkedanslength = this.result.checkedans.length
-    // for(let i=0;i<this.checkedanslength;i++)
-    // {
-    //   if(this.result.checkedans[i]==true)
-    //   this.result.checkedans[i]=1;
-    //   else
-    //   {
-    //     this.result.checkedans[i]=0;
-    //   }
-    // }
-
-
   }
 
-  //  displayedColumns: string[] = ['position','marks'];
-  // dataSource = this.ELEMENT_DATA;
+   displayedColumns: string[] = ['position','result'];
+  
 
 
 
