@@ -1,7 +1,10 @@
 <mat-card>
     <mat-card-title>
-        Time Elapsed - {{hrs}} : {{min}} : {{seconds}}   
+        Time Left  - {{tothr-1-hr}} : {{60 - min}} : {{60 - sec}}   
     </mat-card-title>
+    <mat-card-subtitle>
+        Total Duration - {{tothr}} hours
+    </mat-card-subtitle>
     <mat-card-content>
         <section class="example-section">
             <mat-progress-bar
@@ -11,7 +14,15 @@
                 [value]="value"
             >
             </mat-progress-bar>
-        </section>
+        </section> 
     </mat-card-content> 
+    <mat-card-actions>
+        <button mat-button>
+            Marks per question : 
+        </button>
+        <button mat-button>
+            Negative marks per question : 0
+        </button>
+    </mat-card-actions>
   </mat-card>
   

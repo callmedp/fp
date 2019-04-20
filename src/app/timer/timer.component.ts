@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SendanswersService } from '../sendanswers.service';
+import { DeliverQuesService } from '../deliver-ques.service';
+
+
 
 @Component({
   selector: 'app-timer',
@@ -7,28 +11,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimerComponent implements OnInit {
 
-  constructor() { }
-public hrs:number=0;
-public seconds:number=0;
+  constructor(private ans : SendanswersService,
+    private ques : DeliverQuesService) { }
+public hr:number=0;
+public sec:number=0;
+public tothr : number
 public min : number=0;
+public time : number
+public totalsec :number =0
+public duration
   ngOnInit() {
+   
+    this.ques.infoholder2.subscribe(meta=>{
+      this.duration=meta.duration
+    })
   }
   color = 'warn';
   mode = 'determinate';
   public value : number;
   public timerId = setInterval(() =>{
-      this.seconds++;
-      if(this.seconds==60)
-      {
-        this.seconds=0;
-        this.min++;
-      }
+  this.time=this.duration*3600 ;
+  this.tothr=this.duration
+    this.totalsec++;
+    if(this.sec==60)
+    {
+      this.sec=0;
+      this.min++;
       if(this.min==60)
       {
         this.min=0;
-        this.hrs++;
+        this.hr++;
       }
-      this.value=this.seconds*100/15;
+    }
+    this.value=this.totalsec*100/this.time;
+     console.log("timer tiktok" + this.value)
    }, 1000);
 
    

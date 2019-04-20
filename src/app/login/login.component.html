@@ -1,38 +1,59 @@
+<form #ref="ngForm">
+ 
 <mat-tab-group dynamicHeight>
   <mat-tab label="Student">
-    <div class="example-small-box mat-elevation-z4">
-      <mat-form-field class="c1">
-        Student Username  
-        <input matInput  [(ngModel)]="login.username" name="username"><br>
+    <div class="example-small-box mat-elevation-z4" ngModelGroup="student" #student="ngModelGroup">
+      <mat-form-field class="c1" >  
+        <input matInput placeholder="Student Username" required [(ngModel)]="login.username" #name="ngModel" name="username" >
+        <mat-hint style="color : red" *ngIf="!name.valid && name.touched">Username is required</mat-hint>
       </mat-form-field>
-       <br>
-      <mat-form-field class="c1">
-          Student Password  
-          <input matInput  [(ngModel)]="login.password" name="password" class="c1" ><br>
+      <br>
+      <mat-form-field class="c1" >
+          <input matInput #password="ngModel" minlength="6" placeholder="Student Password" required [type]="hide?'password':'text'" [(ngModel)]="login.password" name="password" class="c1" >
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error *ngIf="password.errors">
+          <mat-error *ngIf="password.errors.required">Password is required</mat-error>
+          <mat-error *ngIf="password.errors.minlength">Password should be of atleast 6 length</mat-error>
+          </mat-error>
+      </mat-form-field>
+      <mat-form-field class="c1"> 
+        <input   [(ngModel)]="login.passkey" placeholder="Passkey" name="passkey" matInput class="c1" required>
+        <mat-error>Passkey id required
+        </mat-error><br>
+    </mat-form-field>
+    <br>
+    <div>
+     <span >
+      <button (click)=loginstudent(ref)  [disabled]="!student.valid" class="c2" mat-raised-button color="warn">Login</button>
+     </span>
+     <span >
+      <mat-spinner color="warn"  style="width:40px" [strokeWidth]="30" [diameter]="30" [class.d-none]="spinner==false" class="mat-spin"></mat-spinner>
+     </span>
+    </div>
+
+   
+    
+  </div>
+  </mat-tab>
+  <mat-tab label="Teacher">
+    <div class="example-large-box mat-elevation-z4" ngModelGroup="teacher" #teacher="ngModelGroup">
+      <mat-form-field class="c1" >
+        <input matInput [(ngModel)]="tlogin.id" name="teachid" placeholder="Teacher Id" required>
+        <mat-error>Id is required</mat-error>
       </mat-form-field>
       <br>
       <mat-form-field class="c1">
-        Test Passkey  
-        <input   [(ngModel)]="login.passkey" name="passkey" matInput class="c1" ><br>
-    </mat-form-field>
-    <br>
-    <button (click)=loginstudent() class="c2" mat-raised-button color="warn">Login</button>
-    </div>
-  </mat-tab>
-  <mat-tab label="Teacher">
-    <div class="example-large-box mat-elevation-z4">
-      <mat-form-field class="c1" >
-        Teacher id  
-        <input matInput [(ngModel)]="tlogin.id" ><br>
+          <input matInput class="c1" [(ngModel)]="tlogin.password" [type]="thide?'password':'text'"  placeholder="Teacher Password" #tpass="ngModel" minlength="6" name="teachpass" required><br>
+          <mat-icon matSuffix (click)="thide = !thide">{{thide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error *ngIf="tpass.errors">
+            <mat-error *ngIf="tpass.errors.required">Password is required</mat-error>
+            <mat-error *ngIf="tpass.errors.minlength">Password should be of atleast 6 length</mat-error>
+            </mat-error>
       </mat-form-field>
-       <br>
-      <mat-form-field class="c1">
-          Teacher Password  
-          <input matInput class="c1" [(ngModel)]="tlogin.password"><br>
-      </mat-form-field>
-     
     <br>
-    <button (click)="loginteacher()" class="c2" mat-raised-button color="warn">Login</button>
+    <br>
+    <button (click)="loginteacher()" [disabled]="!teacher.valid" class="c2" mat-raised-button color="warn">Login</button>
     </div>
   </mat-tab>
 </mat-tab-group>
+</form>

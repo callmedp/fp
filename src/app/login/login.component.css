@@ -6,6 +6,10 @@
     border-radius: 8px;
   }
   
+ .mat-spin{
+   margin : 10px
+ }
+
   .example-small-box {
     height: 300px;
     width: 470px;

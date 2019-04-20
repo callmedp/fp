@@ -49,6 +49,7 @@ import { TempdataService } from './tempdata.service';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    FormsModule,
     MaterialModule,
     HttpClientModule
     

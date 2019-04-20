@@ -1,60 +1,67 @@
 <mat-tab-group dynamicHeight>
   <mat-tab label="Student">
+    <br>
     <div class="example-small-box mat-elevation-z4">
-      <mat-form-field class="c1">
-        Student Name  
-        <input [(ngModel)]="studentdata.stname" name="stname" matInput >
+      <form #sref="ngForm">
+      <mat-form-field class="c1"> 
+        <input [(ngModel)]="studentdata.stname" placeholder="Student Name" required name="stname" matInput >
+        <mat-error>Student name is required</mat-error>
+      </mat-form-field>
+      <mat-form-field class="c1"> 
+        <input [(ngModel)]="studentdata.strollno" placeholder="Roll No." required name="strollno" matInput >
+        <mat-error>Roll No. is required</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="c1">  
+        <input [(ngModel)]="studentdata.stpass" placeholder="Password" required minlength="6" #spass="ngModel" name="stpass" matInput type="password" >
+        <mat-error *ngIf="spass.errors?.required">Password is required</mat-error>
+        <mat-error *ngIf="spass.errors?.minlength ">Password should be of atleast 6 letters</mat-error>
       </mat-form-field>
       <mat-form-field class="c1">
-        Student Roll.No  
-        <input [(ngModel)]="studentdata.strollno" name="strollno" matInput >
+        <input [(ngModel)]="studentdata.stemail" placeholder="Email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="stemail" matInput >
+        <mat-error>Email is invalid</mat-error>
       </mat-form-field>
       <br>
       <mat-form-field class="c1">
-        Password  
-        <input [(ngModel)]="studentdata.stpass" name="stpass" matInput type="password" >
-      </mat-form-field>
-      <mat-form-field class="c1">
-        Email id.  
-        <input [(ngModel)]="studentdata.stemail" name="stemail" matInput >
-      </mat-form-field>
-      <br>
-      <mat-form-field class="c1">
-        Mobile No.
-        <input [(ngModel)]="studentdata.stmobile" name="stmobile" matInput >
+        <input [(ngModel)]="studentdata.stmobile" placeholder="Mobile No." pattern="[0-9]{10}" name="stmobile" matInput >
+        <mat-error>Mobile No. must be of 10 digits</mat-error>
       </mat-form-field>
 
       
-    <button (click)="signupstudent()" class="c2" mat-raised-button color="warn">Signin</button>
+    <button (click)="signupstudent()" class="c2" [disabled]="sref.invalid" mat-raised-button color="warn">Signin</button>
+  </form>
     </div>
   </mat-tab>
   <mat-tab label="Teacher">
+    <br>
     <div class="example-large-box mat-elevation-z4">
+      <form #tref="ngForm">
       <mat-form-field class="c1">
-        Teacher Name  
-        <input [(ngModel)]="teacherdata.stname" name="tname" matInput >
+        <input [(ngModel)]="teacherdata.stname" placeholder="Teacher Name" required name="tname" matInput >
+        <mat-error>Name is required</mat-error>
       </mat-form-field>
-      <mat-form-field class="c1">
-       Teacher Id  
-        <input [(ngModel)]="teacherdata.tid" name="tid" matInput >
-      </mat-form-field>
-      <br>
-      <mat-form-field class="c1">
-        Password  
-        <input [(ngModel)]="teacherdata.tpass" name="tpass" matInput type="password">
-      </mat-form-field>
-      <mat-form-field class="c1">
-        Email id.  
-        <input [(ngModel)]="teacherdata.temail" name="temail" matInput >
+      <mat-form-field class="c1">  
+        <input [(ngModel)]="teacherdata.tid" placeholder="Teacher Id." required name="tid" matInput >
+        <mat-error>Teacher Id. is required</mat-error>
       </mat-form-field>
       <br>
       <mat-form-field class="c1">
-        Mobile No.
-        <input [(ngModel)]="teacherdata.tmobile" name="tmobile" matInput >
+        <input [(ngModel)]="teacherdata.tpass" placeholder="Password" required minlength="6" name="tpass" matInput type="password">
+        <mat-error>Password should be of atleast 6 digits</mat-error>
+      </mat-form-field>
+      <mat-form-field class="c1">
+        <input [(ngModel)]="teacherdata.temail" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="temail" matInput >
+        <mat-error >Email is invalid</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="c1">
+        <input [(ngModel)]="teacherdata.tmobile" placehoolder="[0-9]{10}" name="tmobile" matInput >
+        <mat-error>Mobile No. should be of atleast 10 digits</mat-error>
       </mat-form-field>
 
       
-    <button (click)="signupteacher()" class="c2" mat-raised-button color="warn">Signin</button>
+    <button (click)="signupteacher()" class="c2" [disabled]="tref.invalid" mat-raised-button color="warn">Signin</button>
+  </form>
     </div>
   </mat-tab>
 </mat-tab-group>

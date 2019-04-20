@@ -11,6 +11,7 @@ export class SendanswersService {
   constructor(private http : HttpClient) { }
 public urll = 'http://localhost:3000/api/Answers'
 public url2="http://localhost:3000/checkans/reportdata"
+public umrl='http://localhost:3000/checkans/getMetaData';
   saveAns(answ)
   {
     console.log(answ)
@@ -23,6 +24,11 @@ public url2="http://localhost:3000/checkans/reportdata"
   }
   getScores(data)
   {
-   return  this.http.post(this.url2,data);
-  }
+   return  this.http.post(this.url2,data); 
+   }
+
+getMetaData(passkey){
+  console.log("meta passkey"+passkey)
+  return this.http.post(this.umrl,{passkey :passkey})
+}
 }

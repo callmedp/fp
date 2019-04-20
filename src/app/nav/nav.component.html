@@ -5,8 +5,8 @@
     <div>
        <div *ngIf="loggedin ; then lg ; else lo;"> </div>
           <ng-template #lg>
-                <button mat-raised-button (click)="opendialoglogin()" color="primary" class="c1">Login</button> 
-                <button mat-raised-button (click)="opendialogsignin()" color="primary" class="c1">Sign-up</button>
+                <button mat-raised-button (click)="opendialoglogin()" color="accent" class="c1">Login</button>
+                <button mat-raised-button (click)="opendialogsignin()" color="accent" class="c1">Sign-up</button>
           </ng-template>
           <ng-template #lo>
                 <button mat-raised-button (click)="clicklogout()" color="primary"> Logout</button>
