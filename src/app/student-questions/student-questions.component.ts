@@ -97,7 +97,7 @@ public login ={ username : "",
 }
 openDialog()
 {
-  this.stdisp.submit();
+ 
   const dialogConfig =new MatDialogConfig();
   dialogConfig.autoFocus=true;
   dialogConfig.width="20%";
