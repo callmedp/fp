@@ -13,32 +13,32 @@ router.get('/',function(req,res){
 
 
 
-function verifyToken(req,res,next){
-    console.dir(req)
-    if(!req.headers.authorization)
-    {
-        return res.status(401).send('unauthorized request')
+// function verifyToken(req,res,next){
+//     console.dir(req)
+//     if(!req.headers.authorization)
+//     {
+//         return res.status(401).send('unauthorized request')
 
-    }
-    let token = req.headers.authorization.split(' ')[1]
-    if(token === 'null')
-    {
-        return res.status(401).send('unauthorised request')
+//     }
+//     let token = req.headers.authorization.split(' ')[1]
+//     if(token === 'null')
+//     {
+//         return res.status(401).send('unauthorised request')
 
-    }
-    let payload = jwt.verify(token,"sarthakkey")
-    if(!payload)
-    return res.status(401).send('unauthorised request')
-    req.userId=payload.subject
-    next()
-}
+//     }
+//     let payload = jwt.verify(token,"sarthakkey")
+//     if(!payload)
+//     return res.status(401).send('unauthorised request')
+//     req.userId=payload.subject
+//     next()
+// }
 
-router.post('/verify',verifyToken,function(req,res){
-    console.log('verified');
+router.post('/verify',function(req,res){
+    res.status(200).send({true : true });
 })
 
 
-router.post('/testdata',verifyToken,function(req,res){ 
+router.post('/testdata',function(req,res){ 
     var userdata = req.body;
     var passkey = userdata.passkey;
     console.log(userdata);
@@ -70,7 +70,7 @@ router.post('/testdata',verifyToken,function(req,res){
     
 });
 
-router.post('/loadquestion',verifyToken,function(req,res){
+router.post('/loadquestion',function(req,res){
     var quesdata = req.body;
     var passkey = quesdata.passkey;
     
@@ -98,7 +98,7 @@ router.post('/loadquestion',verifyToken,function(req,res){
 
 });
 
-router.post('/retrieveQuestions',verifyToken,function(req,res){
+router.post('/retrieveQuestions',function(req,res){
     var passkey = req.body.passkey;
 
     url='mongodb+srv://sarthak:test@cluster0-vvw6t.mongodb.net/'+passkey+'?retryWrites=true';
@@ -209,7 +209,7 @@ router.post('/loginstudent',function(req,res){
    
 });
 
-router.post('/Answers',verifyToken,function(req,res){
+router.post('/Answers',function(req,res){
     let passkey = req.body.passkey;
     console.log("running")
     console.log(req.body)

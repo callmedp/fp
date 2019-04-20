@@ -8,6 +8,25 @@ var SaveAnswers =require('../modals/saveanswer')
 var SignupTeacher = require('../modals/signupTeacher');
 var Report = require ('../modals/report');
 
+// function verifyToken(req,res,next){
+//     console.dir(req)
+//     if(!req.headers.authorization)
+//     {
+//         return res.status(401).send('unauthorized request')
+
+//     }
+//     let token = req.headers.authorization.split(' ')[1]
+//     if(token === 'null')
+//     {
+//         return res.status(401).send('unauthorised request')
+
+//     }
+//     let payload = jwt.verify(token,"sarthakkey")
+//     if(!payload)
+//     return res.status(401).send('unauthorised request')
+//     req.userId=payload.subject
+//     next()
+// }
 
 router.post('/calculateans',function(req,res){ 
     var userdata = req.body;
@@ -134,5 +153,37 @@ router.post('/getMetaData',function(req,res){
     });
     
 });
+
+
+
+router.post('/reportdata',function(req,res){
+    var passkey = req.body.passkey;
+    console.log('report data api body'+req.body.passkey)
+
+    url='mongodb+srv://sarthak:test@cluster0-vvw6t.mongodb.net/'+passkey+'?retryWrites=true';
+      
+    mongoose.connect(url,{useNewUrlParser:true},(err)=>{
+        if(err)
+        {
+
+        }
+        else
+        {   console.log("mongodb connected");
+            Report.find({},{score : 1,_id : 0 , stname : 1},(err,data)=>{
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    console.log(data)
+                    res.status(200).send(data);
+                }
+            })
+}
+   
+});
+})
+
 
 module.exports = router;
