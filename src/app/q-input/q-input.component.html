@@ -1,11 +1,11 @@
 <div >
-  <form >
+  <form #myform="ngForm">
     <div class="c4">
            <br> <mat-label class="c12"><strong>Type Question</strong></mat-label>
             <br>
             <mat-form-field class="c11">
                 
-                <input [(ngModel)]='questiondata.question' #refQues name="question" matInput placeholder="Here">
+                <input [(ngModel)]='questiondata.question' required #ques="ngModel" name="question" matInput placeholder="Here">
               </mat-form-field>
               <mat-divider class="c1"></mat-divider>
         
@@ -14,23 +14,23 @@
     <div class="c2">
             <mat-form-field>
                     <mat-label>a)</mat-label>
-                    <input [(ngModel)]='questiondata.optiona' name="optiona" matInput placeholder="option a">
+                    <input [(ngModel)]='questiondata.optiona' required #optiona="ngModel" name="optiona" matInput placeholder="option a">
                   </mat-form-field>
                 
                   <mat-form-field>
                       <mat-label>b)</mat-label>
-                      <input [(ngModel)]='questiondata.optionb' name="optionb" matInput placeholder="option b">
+                      <input [(ngModel)]='questiondata.optionb' required #optionb="ngModel" name="optionb" matInput placeholder="option b">
                   </mat-form-field>
 
     </div>
     <div class="c3">
             <mat-form-field>
                     <mat-label>c)</mat-label>
-                    <input [(ngModel)]='questiondata.optionc' name="optionc" matInput placeholder="option c">
+                    <input [(ngModel)]='questiondata.optionc' required #optionc="ngModel" name="optionc" matInput placeholder="option c">
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>d)</mat-label>
-                    <input [(ngModel)]='questiondata.optiond' name="optiond" matInput placeholder="option d">
+                    <input [(ngModel)]='questiondata.optiond' required #optiond="ngModel" name="optiond" matInput placeholder="option d">
                 </mat-form-field>
                 <mat-divider class="c1"></mat-divider>
 
@@ -43,7 +43,7 @@
   
   <mat-form-field class="c5">
       <mat-label>Answer</mat-label>
-    <mat-select [(ngModel)]='questiondata.answer' name="answer" placeholder="Select">
+    <mat-select [(ngModel)]='questiondata.answer' required #ans="ngModel" name="answer" placeholder="Select">
       <mat-option value="select">Select</mat-option>
       <mat-option value="a">a</mat-option>
       <mat-option value="b">b</mat-option>
@@ -54,6 +54,9 @@
       
     </mat-select>
   </mat-form-field>
-   <button (click)="submitquestion()" class="c10" mat-raised-button color="primary">Add Question</button>
-  </form>
-  </div>
+  
+</form>
+
+   <button  (click)="submitquestion()" class="c10" mat-raised-button [color]="color">{{text}}</button>
+ 
+</div>

@@ -11,6 +11,9 @@ export class TestFormComponent implements OnInit {
   testformdata={
     passkey : ""
   }
+  public save = "Save"
+  public disabled = false
+  public color = "primary"
   constructor(private testform :TestformService) { }
 
   ngOnInit() {
@@ -18,6 +21,9 @@ export class TestFormComponent implements OnInit {
 
   testformsubmit()
   {
+    this.save="Submited"
+    this.disabled = true
+    this.color = "warn"
     this.testform.sendmessage(this.testformdata.passkey);
     // this.testform.storetestfrom(this.testformdata)
     // .subscribe(

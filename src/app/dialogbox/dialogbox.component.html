@@ -1,6 +1,6 @@
 <mat-form-field>
   <mat-label>ENTER PASSKEY</mat-label>
-  <input matInput placeholder="Enter passkey">
+  <input matInput [(ngModel)]="passkey" name="passkey" placeholder="Enter passkey">
 </mat-form-field>
 <br>
 <button mat-button (click)="onclose()" >Cancel</button>

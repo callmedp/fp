@@ -21,8 +21,9 @@ import { QinputdashService } from './qinputdash.service';
 import { DeliverQuesService } from './deliver-ques.service';
 import { SendanswersService } from './sendanswers.service';
 import { ScoreService } from './score.service';
-import { AuthgaurdGuard } from './authgaurd.guard';
+import { AuthgaurdGaurd} from './authgaurd.guard'
 import { TokenIntersepterService } from './token-intersepter.service';
+import { TempdataService } from './tempdata.service';
 
 
 
@@ -59,7 +60,10 @@ import { TokenIntersepterService } from './token-intersepter.service';
     DeliverQuesService,
     SendanswersService,
     ScoreService,
-    AuthgaurdGuard,
+    AuthgaurdGaurd,
+    TempdataService,
+    
+   
     {
       provide :HTTP_INTERCEPTORS,
       useClass : TokenIntersepterService,

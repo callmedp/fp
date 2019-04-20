@@ -33,16 +33,18 @@ export class AuthService {
   }
   loggedIn()
   { var res = localStorage.getItem('token');
+
   
+            
     return !!res
   }
   getToken()
   {
     return localStorage.getItem('token')
   }
-  verifyinback(data)
+  verifyinback()
   {
-    return this.http.post<any>(this.verifyurl,data);
+    return this.http.post<any>(this.verifyurl,{});
   }
 
 

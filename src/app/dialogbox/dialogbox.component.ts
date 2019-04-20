@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import { TempdataService } from '../tempdata.service';
 
 @Component({
   selector: 'app-dialogbox',
@@ -8,7 +9,9 @@ import { MatDialogRef } from '@angular/material';
 })
 export class DialogboxComponent implements OnInit {
 
-  constructor(private diaogRef :MatDialogRef<DialogboxComponent>) { }
+  constructor(private diaogRef :MatDialogRef<DialogboxComponent>,
+    private temp :TempdataService) { }
+  public passkey="";
 
   ngOnInit() {
   }
@@ -18,6 +21,8 @@ export class DialogboxComponent implements OnInit {
   }
   onsubmit()
   {
+    this.temp.sendpasskey(this.passkey)
+
     
   }
 

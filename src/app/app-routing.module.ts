@@ -10,23 +10,24 @@ import { ReportComponent } from './report/report.component';
 import { StudentQuestionsComponent } from './student-questions/student-questions.component';
 import { HomeComponent } from './home/home.component';
 import { InstructionPageComponent } from './instruction-page/instruction-page.component';
-import { ScoreComponent } from './score/score.component';
-import { AuthgaurdGuard } from './authgaurd.guard';
+import { ScoreComponent } from './score/score.component'
+import { AuthgaurdGaurd } from './authgaurd.guard';
+
 
 
 const routes: Routes = [
   {path:'',component : HomeComponent}, 
-  {path : 'score/:username/:passkey',component:ScoreComponent, canActivate : [AuthgaurdGuard]},
-  {path : 'instruction' ,component : InstructionPageComponent , canActivate : [AuthgaurdGuard]},
-  {path : 'studentdips', component : StudentQuestionsComponent, canActivate : [AuthgaurdGuard]},
-  {path:'teacherdash',component:TeacherDashComponent, canActivate : [AuthgaurdGuard]},
-  {path :'teacherfull', component:TeacherFullComponent, canActivate : [AuthgaurdGuard]},
-  {path:'testform',component : TestFormComponent, canActivate : [AuthgaurdGuard]},
-  {path:'qinput',component:QInputComponent, canActivate : [AuthgaurdGuard]},
-  {path:'testdash',component:TestDashComponent, canActivate : [AuthgaurdGuard]},
-  {path:'question',component:QuestionComponent, canActivate : [AuthgaurdGuard]},
-  {path:'report',component:ReportComponent, canActivate : [AuthgaurdGuard]},
-  {path:'studentTest',component:StudentQuestionsComponent, canActivate : [AuthgaurdGuard] }
+  {path : 'score/:username/:passkey',component:ScoreComponent,canActivate:[AuthgaurdGaurd]},
+  {path : 'instruction' ,component : InstructionPageComponent ,canActivate:[AuthgaurdGaurd] },
+  {path : 'studentdips', component : StudentQuestionsComponent,canActivate:[AuthgaurdGaurd]},
+  {path:'teacherdash',component:TeacherDashComponent,canActivate:[AuthgaurdGaurd]},
+  {path :'teacherfull', component:TeacherFullComponent,canActivate:[AuthgaurdGaurd]},
+  {path:'testform',component : TestFormComponent,canActivate:[AuthgaurdGaurd]},
+  {path:'qinput',component:QInputComponent,canActivate:[AuthgaurdGaurd]},
+  {path:'testdash',component:TestDashComponent,canActivate:[AuthgaurdGaurd]},
+  {path:'question',component:QuestionComponent,canActivate:[AuthgaurdGaurd]},
+  {path:'report',component:ReportComponent,canActivate:[AuthgaurdGaurd]},
+  {path:'studentTest',component:StudentQuestionsComponent,canActivate:[AuthgaurdGaurd] }
 
 ];
 

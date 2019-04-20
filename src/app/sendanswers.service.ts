@@ -10,6 +10,7 @@ export class SendanswersService {
 
   constructor(private http : HttpClient) { }
 public urll = 'http://localhost:3000/api/Answers'
+public url2="http://localhost:3000/checkans/reportdata"
   saveAns(answ)
   {
     console.log(answ)
@@ -19,5 +20,9 @@ public urll = 'http://localhost:3000/api/Answers'
   sendstudentdata(data)
   {
     this.infoholder.next(data)
+  }
+  getScores(data)
+  {
+   return  this.http.post(this.url2,data);
   }
 }
