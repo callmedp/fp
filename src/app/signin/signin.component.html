@@ -55,7 +55,7 @@
       </mat-form-field>
       <br>
       <mat-form-field class="c1">
-        <input [(ngModel)]="teacherdata.tmobile" placehoolder="[0-9]{10}" name="tmobile" matInput >
+        <input [(ngModel)]="teacherdata.tmobile" placeholder="Mobile No." pattern="[0-9]{10}" name="tmobile" matInput >
         <mat-error>Mobile No. should be of atleast 10 digits</mat-error>
       </mat-form-field>
 

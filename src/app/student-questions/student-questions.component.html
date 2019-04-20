@@ -4,7 +4,7 @@
     </div>  
     <div>
            <h3>Hello {{login.username}}</h3>
-            <button mat-raised-button  color="accent" class="c1">Submit</button>
+            <button mat-raised-button (click)="openDialog()" color="accent" class="c1">Submit</button>
     </div> 
 </mat-toolbar> 
 
@@ -24,12 +24,12 @@
         </div>
         <div class="ques">
                
-            <app-student-ques-disp (Answerevent)="saveinarray($event)" [index]="index"  [quesleng]="questionset.length" [currentQuestion]="questionset[index]"></app-student-ques-disp>
+            <app-student-ques-disp  (Answerevent)="saveinarray($event)" (indexnext)="increment()" (indexback)="decrement()" [index]="index"  [quesleng]="questionset.length" [currentQuestion]="questionset[index]"></app-student-ques-disp>
             
             
         </div>
         <div>
-            <button mat-raised-button color="warn" (click)='submit()' >Submit</button>
+            <!-- <button mat-raised-button color="warn" (click)='submit()' >Submit</button> -->
         </div>
 </div>
 <mat-divider [vertical]="true"></mat-divider>
