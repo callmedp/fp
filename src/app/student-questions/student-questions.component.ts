@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeliverQuesService } from '../deliver-ques.service';
 import { SendanswersService } from '../sendanswers.service';
-
 import { Router } from '@angular/router';
 
 @Component({

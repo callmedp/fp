@@ -9,6 +9,7 @@ export class DeliverQuesService {
 
   public infoholder=new BehaviorSubject<any>('');
   public infoholder1=new BehaviorSubject<any>('');
+  public infoholder2=new BehaviorSubject<any>('');
   constructor(private http : HttpClient) { }
   url = "http://localhost:3000/api/retrieveQuestions";
   getQuestions(passkey){
@@ -18,6 +19,10 @@ export class DeliverQuesService {
   passQuestions(data){
        this.infoholder.next(data)
   }
+  passMeta(meta){
+    this.infoholder2.next(meta)
+  }
+
   passthekey(passkey)
   {
     this.infoholder1.next(passkey);

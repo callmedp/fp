@@ -23,6 +23,7 @@ public umrl='http://localhost:3000/checkans/getMetaData';
   }
 
   getMetaData(passkey){
-    return this.http.post(this.umrl,passkey,{responseType : 'text'})
+    console.log("meta passkey"+passkey)
+    return this.http.post(this.umrl,{passkey :passkey})
   }
 }

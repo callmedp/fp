@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
   public login = {passkey : ""}
   public tlogin ={}
   public hide : boolean =true
+  public thide : boolean =true
   spinner = false
 loginstudent(ref : NgForm){
   //Authentcation remaining

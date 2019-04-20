@@ -27,7 +27,7 @@
       <button (click)=loginstudent(ref)  [disabled]="!student.valid" class="c2" mat-raised-button color="warn">Login</button>
      </span>
      <span >
-      <mat-spinner color="warn" mode="intermediate" style="width:40px" [strokeWidth]="30" [diameter]="30" [class.d-none]="spinner==false" class="mat-spin"></mat-spinner>
+      <mat-spinner color="warn"  style="width:40px" [strokeWidth]="30" [diameter]="30" [class.d-none]="spinner==false" class="mat-spin"></mat-spinner>
      </span>
     </div>
 
@@ -43,7 +43,8 @@
       </mat-form-field>
       <br>
       <mat-form-field class="c1">
-          <input matInput class="c1" [(ngModel)]="tlogin.password" placeholder="Teacher Password" #tpass="ngModel" minlength="6" name="teachpass" required><br>
+          <input matInput class="c1" [(ngModel)]="tlogin.password" [type]="thide?'password':'text'"  placeholder="Teacher Password" #tpass="ngModel" minlength="6" name="teachpass" required><br>
+          <mat-icon matSuffix (click)="thide = !thide">{{thide ? 'visibility_off' : 'visibility'}}</mat-icon>
           <mat-error *ngIf="tpass.errors">
             <mat-error *ngIf="tpass.errors.required">Password is required</mat-error>
             <mat-error *ngIf="tpass.errors.minlength">Password should be of atleast 6 length</mat-error>
