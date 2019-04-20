@@ -28,8 +28,14 @@ public sendobj ={
 }
 
 ansary=[]
+@Input('callsubmitdisp') callsubmitdisp=false;
 
 ngOnInit() {
+  if(this.callsubmitdisp==true)
+  {
+    console.log(this.ansary)
+    this.Answerevent.emit(this.ansary)
+  }
   console.log(this.togg)
   for(let i=0;i<this.quesleng;i++)
   {
@@ -41,13 +47,7 @@ ngOnInit() {
     if(this.ansary[this.index]!=false)
     this.ansary[this.index]=false
   }
-  submit()
-  { 
-    
-    console.log(this.ansary)
-    this.Answerevent.emit(this.ansary)
-
-  }
+ 
   back(){
     this.indexback.emit();
   }

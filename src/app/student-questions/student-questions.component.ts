@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DeliverQuesService } from '../deliver-ques.service';
 import { SendanswersService } from '../sendanswers.service';
 import { Router } from '@angular/router';
-import { EventEmitter } from 'events';
-import { MatDialog, MatDialogConfig } from '@angular/material';
-import { JaishreeramComponent } from '../jaishreeram/jaishreeram.component';
+
+
 
 @Component({
   selector: 'app-student-questions',
@@ -17,8 +16,8 @@ export class StudentQuestionsComponent implements OnInit {
   constructor(private ques : DeliverQuesService,
     private ans : SendanswersService,
     private router : Router,
-    private dialog :MatDialog,
-    private stdisp :StudentQuestionsComponent
+   
+   
 ) { }
   public questionset
   public noofques : number
@@ -33,6 +32,7 @@ public login ={ username : "",
               passkey : ""
             }
   arr = []
+  public callsubmitdisp=false
   
 
 
@@ -95,19 +95,12 @@ public login ={ username : "",
       this.index=this.index+1;
     }
 }
-openDialog()
-{
-  this.stdisp.submit();
-  const dialogConfig =new MatDialogConfig();
-  dialogConfig.autoFocus=true;
-  dialogConfig.width="20%";
-  dialogConfig.height="25%";
-  this.dialog.open(JaishreeramComponent,dialogConfig);
 
-}
 
   submit()
-  {
+  { 
+    this.callsubmitdisp=true
+
     this.submitdata.stname = this.login.username
     this.submitdata.answers = this.arr
     this.submitdata.passkey = this.login.passkey
