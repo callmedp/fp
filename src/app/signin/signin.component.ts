@@ -27,7 +27,7 @@ export class SigninComponent implements OnInit {
      res =>{console.log(res);
       this.signinRef.close();
       localStorage.setItem('token',res.token)
-      this.router.navigate(['/instruction']);
+      this.router.navigate(['/']);
       
     },
      err=>console.log(err)

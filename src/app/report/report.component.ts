@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { SendanswersService } from '../sendanswers.service';
 import { TempdataService } from '../tempdata.service';
-export interface PeriodicElement {
+export interface sometype {
   stname: string;
  score : number
  
  
 }
-
-
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
@@ -18,31 +16,26 @@ export interface PeriodicElement {
 
 
 export class ReportComponent implements OnInit {
-  displayedColumns: string[] = [ 'stname','score'];
+  displayedColumns = [ 'stname','score'];
  
 public passkey;
-data ={ passkey :this.passkey}
-public scorearr 
- ELEMENT_DATA: PeriodicElement[] = this.scorearr
- dataSource = this.ELEMENT_DATA;
+
+
+ 
+ dataSource :sometype
 
 
 
-  constructor(private sendans : SendanswersService,
+  constructor(
     private temp : TempdataService) { }
 
   ngOnInit() {
-    this.temp.infoholder.subscribe(passkey =>{
-      this.passkey = passkey;
-
-      this.sendans.getScores(this.data).subscribe(
-        scorearr =>{
-          this.scorearr = scorearr
-  
-        }
-      )
-
+    this.temp.infoholder.subscribe((data : sometype)=>{
+      this.dataSource = data
+     
+     
     })
+   
 
     
   }
