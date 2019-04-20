@@ -24,6 +24,7 @@ import { ScoreService } from './score.service';
 import { AuthgaurdGaurd} from './authgaurd.guard'
 import { TokenIntersepterService } from './token-intersepter.service';
 import { TempdataService } from './tempdata.service';
+import { JaishreeramComponent } from './jaishreeram/jaishreeram.component';
 
 
 
@@ -40,6 +41,7 @@ import { TempdataService } from './tempdata.service';
     SigninComponent,
     RoutingComponent,
     HomeComponent,
+    JaishreeramComponent,
     
 
   ],

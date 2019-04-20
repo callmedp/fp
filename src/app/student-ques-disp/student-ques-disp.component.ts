@@ -19,6 +19,8 @@ public togg : boolean = false
 @Input() quesleng : number
 @ViewChild('options') options : NgForm
 @Output() Answerevent = new EventEmitter();
+@Output() indexback = new EventEmitter();
+@Output() indexnext = new EventEmitter();
 public finalans
 public sendobj ={
   fa : " ",
@@ -41,13 +43,16 @@ ngOnInit() {
   }
   submit()
   { 
-    // this.sendobj.fa  =this.finalans
-    // this.sendobj.ind = this.index
-    // this.Answerevent.emit(this.sendobj);
-    // this.finalans=false;
+    
     console.log(this.ansary)
     this.Answerevent.emit(this.ansary)
 
   }
+  back(){
+    this.indexback.emit();
+  }
 
+  next(){
+    this.indexnext.emit();
+  }
 }

@@ -11,3 +11,24 @@ float: left;}
     width:100%;
     height: 90%;
 }
+
+.navbar
+{
+    justify-content: space-between;
+}
+span
+{
+   padding-right: 8px;
+   font-family: 'Times New Roman', Times, serif;
+}
+.c1
+{
+   padding-right: 15px;
+   margin: 8px
+}
+a
+{
+   text-decoration: none;
+   color: white;
+   
+}

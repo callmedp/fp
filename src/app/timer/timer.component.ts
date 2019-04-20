@@ -20,32 +20,37 @@ public min : number=0;
 public time : number
 public totalsec :number =0
 public duration
+color = 'warn';
+mode = 'determinate';
+public value : number;
+public timerId 
   ngOnInit() {
    
     this.ques.infoholder2.subscribe(meta=>{
       this.duration=meta.duration
     })
-  }
-  color = 'warn';
-  mode = 'determinate';
-  public value : number;
-  public timerId = setInterval(() =>{
-  this.time=this.duration*3600 ;
-  this.tothr=this.duration
-    this.totalsec++;
-    if(this.sec==60)
-    {
-      this.sec=0;
-      this.min++;
-      if(this.min==60)
+ 
+  this.timerId = setInterval(() =>{
+    this.time=this.duration*3600 ;
+    this.tothr=this.duration
+      this.totalsec++;
+      this.sec++
+      if(this.sec==60)
       {
-        this.min=0;
-        this.hr++;
+        this.sec=0;
+        this.min++;
+        if(this.min==60)
+        {
+          this.min=0;
+          this.hr++;
+        }
       }
-    }
-    this.value=this.totalsec*100/this.time;
-     console.log("timer tiktok" + this.value)
-   }, 1000);
-
+      this.value=this.totalsec*100/this.time;
+     
+       console.log("timer tiktok" + this.min+ "/" +this.sec)
+     }, 1000);
+  
+  }
+ 
    
 }
