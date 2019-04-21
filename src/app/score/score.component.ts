@@ -53,6 +53,7 @@ export class ScoreComponent implements OnInit {
         let val = this.temp[index];
         this.temp2.push({position : index , result : val})
         this.dataSource = this.temp2
+        console.log(this.dataSource)
        
       }
 

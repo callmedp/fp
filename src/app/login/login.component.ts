@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { SendanswersService } from '../sendanswers.service';
 import { AuthService } from '../auth.service';
 import { NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     private _http : HttpClient,private ques : DeliverQuesService,
     private router : Router,
     private ans : SendanswersService,
-    private auth : AuthService) { }
+    private auth : AuthService,
+    ) { }
 
     public diameter = 1
 
@@ -42,6 +44,7 @@ loginstudent(ref : NgForm){
    this.ques.passthekey(this.login.passkey)
     this.ans.sendstudentdata(this.login)
     setTimeout(()=>{
+     
       this.router.navigate(['/instruction']);
     },500)
       }

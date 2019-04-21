@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card >
   <mat-card-header>
     <mat-card-title>
       Question No : {{index+1}}
@@ -30,10 +30,10 @@
         </mat-radio-group>
       </div>
   </mat-card-content>
-  <mat-card-actions class="save">
-      <button (click)="deSelect()" color="accent" >Reset</button>
-    <!-- <button (click)="submit()" mat-raised-button color="accent" >Submit</button> -->
-    <button (click)="back()" color="primary" >Back</button>
-    <button (click)="next()" color="primary" >Next</button>
+  <mat-card-actions >
+      <button  mat-raised-button (click)="deSelect()"  >Reset</button>
+   
+    <button style="float : right;" mat-raised-button color="warn" (click)="back()">Back</button>
+    <button style="float : right;" mat-raised-button color="warn" (click)="next()" >Next</button>
   </mat-card-actions>
 </mat-card>

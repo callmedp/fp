@@ -95,17 +95,6 @@ public login ={ username : "",
       this.index=this.index+1;
     }
 }
-<<<<<<< HEAD
-=======
-openDialog()
-{
- 
-  const dialogConfig =new MatDialogConfig();
-  dialogConfig.autoFocus=true;
-  dialogConfig.width="20%";
-  dialogConfig.height="25%";
-  this.dialog.open(JaishreeramComponent,dialogConfig);
->>>>>>> b9ce536eaaf6c6d1a03d18268e559350962c2557
 
 
   submit()

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog,MatDialogConfig } from '@angular/material';
 import { LoginComponent } from '../login/login.component';
 import { SigninComponent } from '../signin/signin.component';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
-   loggedin = true;
+  @Input('loggedIn') loggedin = true;
 
   constructor(private dialog :MatDialog,
     private router : Router) { }
