@@ -49,6 +49,6 @@
         </p>
       </li>
     </ul>
-    <button (click)="movetostudentdisplay()" mat-raised-button color="warn" >Start now</button>
+    <button (click)="movetostudentdisplay()" [disabled]="disabled" mat-raised-button color="warn" >Start now</button>
   </mat-card-content>
 </mat-card>

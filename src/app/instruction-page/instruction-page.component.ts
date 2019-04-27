@@ -20,6 +20,7 @@ export class InstructionPageComponent implements OnInit {
     private ans : SendanswersService) { }
  public questionset
  public key ={passkey : ''}
+ public disabled : boolean = true
   ngOnInit() {
     console.log("kuch bhi 0")
     this.ques.infoholder1.subscribe(passkey=>{
@@ -33,6 +34,7 @@ export class InstructionPageComponent implements OnInit {
         this.questionset = data;
         console.log(this.questionset)
         this.ques.passQuestions(this.questionset);
+        this.disabled=false
     })
    
     })
