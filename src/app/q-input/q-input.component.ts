@@ -47,13 +47,13 @@ export class QInputComponent implements OnInit {
       this.qinputdash.sendmessage(this.questiondata);
   
    console.log("question data read");
-    // this.testform.storequestion(this.questiondata)
-    // .subscribe(
-    //   res =>{console.log(res);
+    this.testform.storequestion(this.questiondata)
+    .subscribe(
+      res =>{console.log(res);
         
-    //   },
-    //    err=>console.log(err)
-    // );
+      },
+       err=>console.log(err)
+    );
     this.color="warn"
     this.text="submitted"
    setTimeout(()=>{

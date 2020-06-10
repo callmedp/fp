@@ -22,7 +22,6 @@ export class TestformService {
   urls = "http://localhost:3000/api/testdata";
   urlt = "http://localhost:3000/api/loadquestion";
    
- 
    storetestfrom(data)
    {
      return this.http.post<any>(this.urls,data);
@@ -30,7 +29,6 @@ export class TestformService {
    storequestion(data)
    {
      return this.http.post<any>(this.urlt,data);
- 
    }
 
 

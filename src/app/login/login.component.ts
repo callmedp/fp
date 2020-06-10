@@ -32,7 +32,9 @@ export class LoginComponent implements OnInit {
   spinner = false
 loginstudent(ref : NgForm){
   //Authentcation remaining
-  console.log(ref)
+  console.log(
+    "Auhenticating user"
+  )
   this.spinner = true
   this.auth.checkStudent(this.login)
   .subscribe(

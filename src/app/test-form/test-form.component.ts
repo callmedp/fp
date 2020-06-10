@@ -12,7 +12,7 @@ export class TestFormComponent implements OnInit {
     passkey : ""
   }
   public save = "Save"
-  public disabled = false
+  public disabled = false 
   public color = "primary"
   constructor(private testform :TestformService) { }
 
@@ -24,15 +24,16 @@ export class TestFormComponent implements OnInit {
     this.save="Submited"
     this.disabled = true
     this.color = "warn"
+    console.log("this is test form data",this.testformdata)
     this.testform.sendmessage(this.testformdata.passkey);
-    // this.testform.storetestfrom(this.testformdata)
-    // .subscribe(
-    //   res =>{console.log(res);
+    this.testform.storetestfrom(this.testformdata)
+    .subscribe(
+      res =>{console.log(res);
        
         
-    //   },
-    //    err=>console.log(err)
-    // );
+      },
+       err=>console.log(err)
+    );
   }
 
 }

@@ -22,11 +22,9 @@ export class InstructionPageComponent implements OnInit {
  public key ={passkey : ''}
  public disabled : boolean = true
   ngOnInit() {
-    console.log("kuch bhi 0")
     this.ques.infoholder1.subscribe(passkey=>{
-      console.log("kuch")
       this.key.passkey=passkey
-      console.log(this.key.passkey)
+      console.log("this is passkey",this.key.passkey)
       this.ans.getMetaData(this.key.passkey).subscribe((meta : metadata)=>{
         this.ques.passMeta(meta)
       })
